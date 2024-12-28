@@ -5,17 +5,12 @@ import { fetchAsync } from "../features/activity/activity-slicer";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { activities: initialActivities, loading } = useSelector((state) => state.activity);
-  const [activities, setActivities] = useState([]);
+  const { activities, loading, error } = useSelector((state) => state.activity);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAsync());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setActivities(initialActivities);
-  }, [initialActivities]);
+  }, []);
 
   const handleDeleteActivity = async (id) => {
     try {
@@ -45,10 +40,19 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-black mb-20 text-center">Favorite Activity</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {activities && activities.length > 0 ? (
-            activities.map((item) => <Card key={item.id} id={item.id} activity={item.name} onDelete={handleDeleteActivity} />)
+            activities.map((item) => (
+              <Card
+                key={item.id}
+                id={item.id}
+                activity={item.name}
+                onDelete={handleDeleteActivity}
+              />
+            ))
           ) : (
             <div className="md:col-start-2 flex justify-center">
-              <p className="text-2xl text-center bg-gradient-to-br from-yellow-200 to-pink-200 p-6 rounded-lg shadow-lg border-4 border-black text-black">You don't have any activity</p>
+              <p className="text-2xl text-center bg-gradient-to-br from-yellow-200 to-pink-200 p-6 rounded-lg shadow-lg border-4 border-black text-black">
+                You don't have any activity
+              </p>
             </div>
           )}
         </div>

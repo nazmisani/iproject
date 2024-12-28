@@ -1,5 +1,4 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
-import Login from "../views/login";
 import Register from "../views/Register";
 import BaseLayout from "../views/BaseLayout";
 import Home from "../views/Home";
@@ -8,6 +7,7 @@ import Toastify from "toastify-js";
 import ReadProfile from "../views/ReadProfile";
 import EditProfile from "../views/EditProfile";
 import Generate from "../views/Generate";
+import Login from "../views/Login";
 
 const base_url = "http://localhost:3000";
 

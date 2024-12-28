@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import Toastify from "toastify-js";
 
-export default function Profile({ base_url }) {
+export default function AddProfile({ base_url }) {
   const [username, setUsername] = useState("");
   const [gender, setGender] = useState("");
   const [file, setFile] = useState(null);
@@ -126,18 +126,35 @@ export default function Profile({ base_url }) {
     <div className="bg-gradient-to-br from-purple-100 to-indigo-100 min-h-screen flex items-center justify-center">
       <main className="w-full max-w-md">
         <h1 className="text-3xl font-bold text-black mb-6 text-center">Create Profile</h1>
-        <form onSubmit={handleSubmit} className="bg-gradient-to-br from-yellow-200 to-orange-300 border-4 border-black rounded-md p-6 shadow-brutal">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-gradient-to-br from-yellow-200 to-orange-300 border-4 border-black rounded-md p-6 shadow-brutal"
+        >
           <div className="mb-4">
             <label htmlFor="username" className="block text-black font-bold mb-2">
               Username
             </label>
-            <input type="text" id="username" name="username" className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none" placeholder="Enter your username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
           </div>
           <div className="mb-4">
             <label htmlFor="gender" className="block text-black font-bold mb-2">
               Gender
             </label>
-            <select id="gender" name="gender" className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none" value={gender} onChange={(e) => setGender(e.target.value)}>
+            <select
+              id="gender"
+              name="gender"
+              className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
               <option value="" disabled>
                 Select your gender
               </option>
@@ -149,9 +166,18 @@ export default function Profile({ base_url }) {
             <label htmlFor="file" className="block text-black font-bold mb-2">
               Upload Image
             </label>
-            <input type="file" id="file" name="file" className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none" onChange={handleFileChange} />
+            <input
+              type="file"
+              id="file"
+              name="file"
+              className="w-full px-4 py-2 border-2 border-black rounded-md shadow-inner focus:outline-none"
+              onChange={handleFileChange}
+            />
           </div>
-          <button type="submit" className="w-full px-4 py-2 bg-green-300 border-2 border-black rounded-md font-bold text-black shadow-brutal hover:bg-green-400">
+          <button
+            type="submit"
+            className="w-full px-4 py-2 bg-green-300 border-2 border-black rounded-md font-bold text-black shadow-brutal hover:bg-green-400"
+          >
             Submit
           </button>
         </form>

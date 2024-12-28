@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import Toastify from "toastify-js";
 import Button from "../components/Button";
 
@@ -65,13 +65,27 @@ export default function Register({ base_url }) {
               <label htmlFor="email" className="block text-sm font-bold text-black my-2">
                 Email
               </label>
-              <input type="email" id="email" name="email" required="" className="w-full px-3 py-2 bg-yellow-100 border-2 border-black rounded-md focus:outline-none focus:ring-4 focus:ring-yellow-300" onChange={(e) => setEmail(e.target.value)} />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required=""
+                className="w-full px-3 py-2 bg-yellow-100 border-2 border-black rounded-md focus:outline-none focus:ring-4 focus:ring-yellow-300"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div>
               <label htmlFor="password" className="block text-sm font-bold text-black my-2">
                 Password
               </label>
-              <input type="password" id="password" name="password" required="" className="w-full px-3 py-2 bg-yellow-100 border-2 border-black rounded-md focus:outline-none focus:ring-4 focus:ring-yellow-300" onChange={(e) => setPassword(e.target.value)} />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required=""
+                className="w-full px-3 py-2 bg-yellow-100 border-2 border-black rounded-md focus:outline-none focus:ring-4 focus:ring-yellow-300"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             <Button nameProp="Register" />
           </form>

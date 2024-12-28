@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchAsync } from "../features/profile/profile-slicer";
@@ -25,7 +25,11 @@ export default function ReadProfile() {
         ) : (
           <div className="flex flex-col items-center space-y-6">
             <div>
-              <img src={profile?.profile?.imageUrl || "https://via.placeholder.com/100"} alt="Profile" className="w-48 h-48 rounded-full border-4 border-black shadow-md" />
+              <img
+                src={profile?.profile?.imageUrl || "https://via.placeholder.com/100"}
+                alt="Profile"
+                className="w-48 h-48 rounded-full border-4 border-black shadow-md"
+              />
             </div>
             <div className="w-full text-center">
               <p className="text-xl font-bold text-black">Username:</p>
@@ -36,7 +40,10 @@ export default function ReadProfile() {
               <p className="text-lg text-black">{profile?.profile?.gender}</p>
             </div>
             <div className="mt-6">
-              <Link to="/profile-edit" className="px-6 py-2 bg-blue-300 border-2 border-black rounded-md font-bold text-black shadow-brutal hover:bg-blue-400">
+              <Link
+                to="/profile-edit"
+                className="px-6 py-2 bg-blue-300 border-2 border-black rounded-md font-bold text-black shadow-brutal hover:bg-blue-400"
+              >
                 Edit Profile
               </Link>
             </div>
